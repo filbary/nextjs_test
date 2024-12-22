@@ -1,5 +1,5 @@
 # Stage 1: Build
-FROM node:18 AS builder
+FROM node:23.5-alpine AS builder
 
 # Set the working directory
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Runtime
-FROM node:18
+FROM node:23.5-alpine
 
 # Set environment variable for production
 ENV NODE_ENV=production
@@ -31,7 +31,7 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 
 # Install only production dependencies
-RUN npm install --only=production
+RUN npm install --omit=dev
 
 # Expose the port the app runs on
 EXPOSE 3000
