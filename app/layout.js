@@ -17,7 +17,7 @@ export default function Layout({ children }) {
         <main>{children}</main>
 
         <footer>
-          <p>© 2024 My Next.js App</p>
+          <p>© 2024 My Next.js App random text</p>
         </footer>
       </body>
     </html>
