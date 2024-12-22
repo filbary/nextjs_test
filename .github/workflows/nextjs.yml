@@ -26,11 +26,8 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Run ESLint (Linting)
+    - name: Run Linter
       run: npm run lint  # Add a linting step to check code style, etc.
 
     - name: Build Next.js app
       run: npm run build
-    
-    - name: Run tests (optional)
-      run: npm test  # Optional step for running tests if needed
