@@ -13,6 +13,7 @@ env:
   DOCKER_REGISTRY: filbary
   IMAGE_NAME: nextjs-test
   IMAGE_TAG: latest
+  AZURE_APP: firstnextjs
 
 jobs:
   # Job for setting up Node.js, installing dependencies, linting, and building the app
@@ -59,3 +60,15 @@ jobs:
       with:
         push: true
         tags: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+
+  deploy:
+    needs: docker
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploy to azure
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_APP }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        images: ${{ env.DOCKER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
