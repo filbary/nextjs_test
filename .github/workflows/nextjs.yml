@@ -1,0 +1,36 @@
+name: Build and Lint Next.js App
+
+# Trigger the workflow on push to the main branch or on pull request
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  # Job for setting up Node.js, installing dependencies, linting, and building the app
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'  # Use the Node.js version you need for your project
+        
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run ESLint (Linting)
+      run: npm run lint  # Add a linting step to check code style, etc.
+
+    - name: Build Next.js app
+      run: npm run build
+    
+    - name: Run tests (optional)
+      run: npm test  # Optional step for running tests if needed
