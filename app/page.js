@@ -1,9 +1,5 @@
 // app/page.js
-export default function Home() {
-
-
-
-  
+export default function Hom
   return (
     <div>
       <h1>Welcome to My Next.js App</h1>
