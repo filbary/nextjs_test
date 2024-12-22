@@ -10,7 +10,7 @@ on:
       - main
 
 env:
-  DOCKER_REGISTRY: registry.hub.docker.com/filbary
+  DOCKER_REGISTRY: filbary
   IMAGE_NAME: nextjs-test
   AZURE_APP: firstnextjs
 
