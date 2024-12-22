@@ -1,9 +1,11 @@
-// app/page.js
-export default function Hom
+import Link from "next/link";
+
+function Home() {
   return (
     <div>
-      <h1>Welcome to My Next.js App</h1>
-      <p>This is the homepage.</p>
+      <Link href="/about">About Us</Link>
     </div>
-  )
+  );
 }
+
+export default Home;

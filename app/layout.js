@@ -1,5 +1,6 @@
 // app/layout.js
-import './globals.css'
+import Link from "next/link";
+import "./globals.css";
 
 export default function Layout({ children }) {
   return (
@@ -8,14 +9,17 @@ export default function Layout({ children }) {
       <body>
         <header>
           <nav>
-            <a href="/">Home</a> | <a href="/about">About</a>
+            <Link href="/">Home</Link> | <Link href="/about">About</Link>
           </nav>
         </header>
+
+        {/* Main content area */}
         <main>{children}</main>
+
         <footer>
           <p>© 2024 My Next.js App</p>
         </footer>
       </body>
     </html>
-  )
+  );
 }

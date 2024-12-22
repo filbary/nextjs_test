@@ -5,5 +5,5 @@ export default function About() {
       <h1>About Page</h1>
       <p>This page is all about this Next.js app.</p>
     </div>
-  )
+  );
 }
